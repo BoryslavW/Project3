@@ -1,2 +1,7 @@
-package PACKAGE_NAME;public class Challenge {
+public class Challenge {
+    public Challenge() {
+
+    }
+
+    //public
 }
