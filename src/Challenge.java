@@ -5,22 +5,24 @@ public class Challenge {
 
         Scanner scan = new Scanner(System.in);
 
-        private int distance = 0;
+        private double distance = 0;
 
         public String grapple() {
 
             int x = (int) (Math.random() * 4 + 1);
             int y = (int) (Math.random() * 4 + 1);
 
-            distance = (int) (Math.sqrt((x * x) + (y * y)));
+            distance = (Math.sqrt((x * x) + (y * y))) ;
+            // find way to shorten this so only tenths place appears
 
-            return "calculate the hypotenuse of a right triangle with legs " + x + " and " + y;
+
+            return "calculate the hypotenuse of a right triangle with legs " + x + " and " + y + " (to the tenths place)";
         }
 
         public boolean check() {
-            int ans = scan.nextInt();
+            double ans = scan.nextDouble();
 
-            int realANS = distance;
+            double realANS = distance;
 
             if (realANS == ans) {
                 return true;
