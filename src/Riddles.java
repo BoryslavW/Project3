@@ -9,9 +9,7 @@ public class Riddles {
     List<String> answers = Arrays.asList("Your reflection", "A joke", "Bribe", "A promise", "Darkness", "A deck of cards", "Your tongue", "A clock", "Tomorrow", "A glove", "A secret", "An echo");
     ArrayList<Integer> previous = new ArrayList<>();
 
-    public Riddles() {
-
-    }
+    public Riddles() {}
 
     public boolean checkANS() {
         String ans = scan.nextLine();
