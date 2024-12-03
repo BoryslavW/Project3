@@ -11,6 +11,19 @@ public class Riddles {
 
     public Riddles() {}
 
+    public String Riddles() {
+        
+        riddleNum = (int) ((Math.random() * 12) + 1);
+
+        while (previous.contains(riddleNum)) {
+             riddleNum = (int) ((Math.random() * 12) + 1);  
+        }
+
+        previous.add(riddleNum);
+        return questions.get(riddleNum);
+        
+    }
+
     public boolean checkANS() {
         String ans = scan.nextLine();
 
