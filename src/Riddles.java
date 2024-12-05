@@ -11,12 +11,12 @@ public class Riddles {
 
     public Riddles() {}
 
-    public String Riddles() {
-        
-        riddleNum = (int) ((Math.random() * 12) + 1);
+    public String giveRiddle() {
+
+        riddleNum = (int) (Math.random() * 12);
 
         while (previous.contains(riddleNum)) {
-             riddleNum = (int) ((Math.random() * 12) + 1);  
+             riddleNum = (int) (Math.random() * 12);
         }
 
         previous.add(riddleNum);
@@ -32,12 +32,9 @@ public class Riddles {
         ans = ans.toLowerCase();
         realANS = realANS.toLowerCase();
 
-        if (realANS.contains(ans)) {
-            return true;
-        }
-        else {
+        if (ans.length() < 3) {
             return false;
-        }
+        } else return realANS.contains(ans);
 
     }
 }

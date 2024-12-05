@@ -1,8 +1,6 @@
 public class Runner {
     public static void main(String[] args) {
-
         Logic game = new Logic();
-
         game.start();
 
         //TextArt x = new TextArt();
