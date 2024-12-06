@@ -12,7 +12,6 @@ public class Riddles {
     public Riddles() {}
 
     public String giveRiddle() {
-
         riddleNum = (int) (Math.random() * 12);
 
         while (previous.contains(riddleNum)) {
@@ -21,20 +20,20 @@ public class Riddles {
 
         previous.add(riddleNum);
         return questions.get(riddleNum);
-        
     }
 
     public boolean checkANS() {
         String ans = scan.nextLine();
-
         String realANS = answers.get(riddleNum);
-
         ans = ans.toLowerCase();
         realANS = realANS.toLowerCase();
 
         if (ans.length() < 3) {
             return false;
         } else return realANS.contains(ans);
+    }
 
+    public String getAnswer() {
+        return answers.get(riddleNum);
     }
 }
