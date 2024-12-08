@@ -1,6 +1,7 @@
 //add something that asks if the player wants to try again or play again after they finish
 //add game introduction
 //can use Thread.sleep(1000); between print messages to delay prints; better game flow
+import java.util.Scanner;
 
 public class Logic {
     private Challenge challenge;
@@ -15,10 +16,45 @@ public class Logic {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_PURPLE = "\u001B[35m";
 
+    Scanner scan = new Scanner(System.in);
+
     public Logic() {
         challenge = new Challenge();
         riddle = new Riddles();
         art = new TextArt();
+    }
+
+    public void printIntroduction() throws InterruptedException {
+        System.out.println("===============================================================");
+        System.out.println("            🦇 BATMAN vs THE RIDDLER: Mini-Boss Fight 🧩");
+        System.out.println("===============================================================");
+        Thread.sleep(1500);
+        System.out.println();
+        System.out.println("🎩 The Riddler has struck again! Gotham is on the brink of chaos.");
+        System.out.println("He has planted explosives all over the city, and only YOU,");
+        System.out.println("the world’s greatest detective, can stop him.");
+        Thread.sleep(2000);
+        System.out.println();
+        System.out.println("But beware! You’ll face a series of tricky riddles.");
+        System.out.println("Answer correctly, and you edge closer to saving Gotham.");
+        System.out.println("Fail... and the city will pay the ultimate price.");
+        Thread.sleep(2000);
+        System.out.println();
+        System.out.println("💥 **3 Correct Answers**: Gotham is saved!");
+        System.out.println("💣 **3 Wrong Answers**: Face the final challenge... or watch Gotham fall.");
+        Thread.sleep(2000);
+        System.out.println();
+        System.out.println("💡 Can you outsmart The Riddler and save the city?");
+        System.out.println("The clock is ticking...");
+        Thread.sleep(2000);
+        System.out.println();
+        System.out.println("                **Good luck, Detective.**");
+        System.out.println("===============================================================");
+        Thread.sleep(1500);
+        System.out.println("Continue? (y/n): ");
+        if (scan.nextLine().equals("n")) {
+            System.out.println(ANSI_RED + "Too bad, Detective!" + ANSI_RESET);
+        }
     }
 
     public void printRandomReply() {
@@ -48,7 +84,9 @@ public class Logic {
         fails = 0;
     }
 
-    public void start() {
+    public void start() throws InterruptedException {
+        printIntroduction();
+        Thread.sleep(3000);
         System.out.println(art.batman());
 
         while (success < 3 && fails < 3) {
