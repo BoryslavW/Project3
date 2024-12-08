@@ -1,4 +1,12 @@
+//add something that asks if the player wants to try again or play again after they finish
+//add game introduction
+//can use Thread.sleep(1000); between print messages to delay prints; better game flow
+
 public class Logic {
+    private Challenge challenge;
+    private Riddles riddle;
+    private TextArt art;
+
     private int success = 0;
     private int fails = 0;
 
@@ -8,80 +16,70 @@ public class Logic {
     public static final String ANSI_PURPLE = "\u001B[35m";
 
     public Logic() {
+        challenge = new Challenge();
+        riddle = new Riddles();
+        art = new TextArt();
+    }
 
+    public void printRandomReply() {
+        String[] replies = {
+                "Well, well, well, the Detective lives up to his name.",
+                "Lucky guess, or are you truly as sharp as they say?",
+                "You think you're so clever, don't you? Let's see how long that lasts!",
+                "A fluke, surely. Care to try your luck again?",
+                "Oh, bravo, Batman! But don't let it go to your head.",
+                "Even a dull blade can cut once in a while."
+        };
+        System.out.println(ANSI_RED + replies[(int)(Math.random() * replies.length)] + ANSI_RESET);
+    }
+
+    public void printWinMessage() {
+        System.out.println(ANSI_GREEN + "You won, Gotham lives to see another night");
+        System.out.println("The Riddler will be sent to Arkham and receive no psychiatric help" + ANSI_RESET);
+    }
+
+    public void printLoseMessage() {
+        System.out.println(ANSI_PURPLE + "You lost, Gotham has been blown to smithereens");
+        System.out.println(":(" + ANSI_RESET);
+    }
+
+    public void resetGame() {
+        success = 0;
+        fails = 0;
     }
 
     public void start() {
-        Challenge challenge = new Challenge();
-        Riddles riddle = new Riddles();
-        TextArt art = new TextArt();
-
         System.out.println(art.batman());
 
-        while (success < 3 || fails < 3) {
+        while (success < 3 && fails < 3) {
             //give the riddler image we want
 
             System.out.println(riddle.giveRiddle());
             boolean check = riddle.checkANS();
             if (check) {
                 success++;
-                int reply = (int) (Math.random() * 6 + 1);
-                if (reply == 1) {
-                    System.out.println(ANSI_RED + "Well, well, well, the Detective lives up to his name." + ANSI_RESET);
-                } else if (reply == 2) {
-                    System.out.println(ANSI_RED + "Lucky guess, or are you truly as sharp as they say?" + ANSI_RESET);
-                } else if (reply == 3) {
-                    System.out.println(ANSI_RED + "You think you're so clever, don't you? Let's see how long that lasts!" + ANSI_RESET);
-                } else if (reply == 4) {
-                    System.out.println(ANSI_RED + "A fluke, surely. Care to try your luck again?" + ANSI_RESET);
-                } else if (reply == 5) {
-                    System.out.println(ANSI_RED + "Oh, bravo, Batman! But don't let it go to your head." + ANSI_RESET);
-                } else if (reply == 6) {
-                    System.out.println(ANSI_RED + "Even a dull blade can cut once in a while." + ANSI_RESET);
-                }
+                printRandomReply();
             } else {
                 fails++;
                 System.out.println(ANSI_RED + "WRONG! The answer was: " + riddle.getAnswer() + ANSI_RESET);
             }
-
-            if (success == 3 || fails == 3) {
-                break;
-            }
         }
 
         if (success == 3) {
-            //show game win image
-            System.out.println(ANSI_GREEN + "You won, Gotham lives to see another night");
-            System.out.println("The Riddler will be sent to Arkham and receive no psychiatric help" + ANSI_RESET);
-        }
-
-        if (fails == 3) {
-            //put grapple image here
+            printWinMessage();
+        } else if (fails == 3) {
             System.out.println(challenge.grapple());
-            //boolean checkChallenge = challenge.check();
-
             if (challenge.check()) {
+                System.out.println(ANSI_RED + "Very well, Batman. I'll give you a second chance." + ANSI_RESET);
                 System.out.println(riddle.giveRiddle());
                 if (riddle.checkANS()) {
-                    //show game win image
-                    System.out.println(ANSI_GREEN + "You won, Gotham lives to see another night");
-                    System.out.println("The Riddler will be sent to Arkham and receive no psychiatric help" + ANSI_RESET);
+                    printWinMessage();
                 } else {
-                    // show the game over lose image
-                    System.out.println(ANSI_PURPLE + "You lost, Gotham has been blown to smithereens");
-                    System.out.println(":(" + ANSI_RESET);
+                    printLoseMessage();
                 }
+            } else {
+                printLoseMessage();
             }
-            else {
-                // show the game over lose image
-                System.out.println(ANSI_PURPLE + "You lost, Gotham has been blown to smithereens");
-                System.out.println(":(" + ANSI_RESET);
-            }
-        }
-        else {
-            //show game win image
-            System.out.println(ANSI_GREEN + "You won, Gotham lives to see another night");
-            System.out.println("The Riddler will be sent to Arkham and receive no psychiatric help" + ANSI_RESET);
         }
     }
 }
