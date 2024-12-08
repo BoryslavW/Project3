@@ -9,24 +9,31 @@ public class Riddles {
     List<String> answers = Arrays.asList("Your reflection", "A joke", "Bribe", "A promise", "Darkness", "A deck of cards", "Your tongue", "A clock", "Tomorrow", "A glove", "A secret", "An echo");
     ArrayList<Integer> previous = new ArrayList<>();
 
-    public Riddles() {
+    public Riddles() {}
 
+    public String giveRiddle() {
+        riddleNum = (int) (Math.random() * 12);
+
+        while (previous.contains(riddleNum)) {
+            riddleNum = (int) (Math.random() * 12);
+        }
+
+        previous.add(riddleNum);
+        return questions.get(riddleNum);
     }
 
     public boolean checkANS() {
         String ans = scan.nextLine();
-
         String realANS = answers.get(riddleNum);
-
         ans = ans.toLowerCase();
         realANS = realANS.toLowerCase();
 
-        if (realANS.contains(ans)) {
-            return true;
-        }
-        else {
+        if (ans.length() < 3) {
             return false;
-        }
+        } else return realANS.contains(ans);
+    }
 
+    public String getAnswer() {
+        return answers.get(riddleNum);
     }
 }

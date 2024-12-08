@@ -12,26 +12,26 @@ public class Challenge {
 
     public String grapple() {
 
-            int x = (int) (Math.random() * 4 + 1);
-            int y = (int) (Math.random() * 4 + 1);
+        int x = (int) (Math.random() * 4 + 1);
+        int y = (int) (Math.random() * 4 + 1);
 
-            distance = Double.parseDouble(df_tenths.format(Math.sqrt((x * x) + (y * y))));
+        distance = Double.parseDouble(df_tenths.format(Math.sqrt((x * x) + (y * y))));
 
 
-            return "Calculate the hypotenuse of a right triangle with leg lengths of " + x + " and " + y + " (to the tenths place)";
+        return "Calculate the hypotenuse of a right triangle with leg lengths of " + x + " and " + y + " (to the tenths place)";
     }
 
     public boolean check() {
-            double ans = scan.nextDouble();
+        double ans = scan.nextDouble();
 
-            double realANS = distance;
+        double realANS = distance;
 
-            if (realANS == ans) {
-                return true;
-            }
-            else {
-                return false;
-            }
+        if (realANS == ans) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 
