@@ -1,5 +1,8 @@
 // array list from: https://www.w3schools.com/java/java_arraylist.asp
 // lists from: https://stackoverflow.com/questions/858572/how-to-make-a-new-list-in-java
+/* riddles & answers from: https://gamerant.com/batman-riddler-best-riddles/
+                           https://parade.com/947956/parade/riddles/
+*/
 
 import java.util.*;
 
@@ -39,7 +42,7 @@ public class Riddles {
 
     public Riddles() {}
 
-    public String giveRiddle() {
+    public String giveRiddle() throws InterruptedException {
         riddleNum = (int) (Math.random() * 12);
 
         while (previous.contains(riddleNum)) {
@@ -47,18 +50,27 @@ public class Riddles {
         }
 
         previous.add(riddleNum);
-        return questions.get(riddleNum);
+        String riddle = questions.get(riddleNum);
+
+        for (int i = 0; i < riddle.length(); i++) {
+            System.out.print(riddle.charAt(i));
+            Thread.sleep(100);
+        }
+
+        return "";
+    }
+
+    private boolean isCorrectAnswer(String ans, String correctAnswer) {
+        ans = ans.toLowerCase().trim();
+        correctAnswer = correctAnswer.toLowerCase().trim();
+        return correctAnswer.contains(ans) && ans.length() > 3;
     }
 
     public boolean checkANS() {
+        System.out.print("Your answer: ");
         String ans = scan.nextLine();
-        String realANS = answers.get(riddleNum);
-        ans = ans.toLowerCase();
-        realANS = realANS.toLowerCase();
-
-        if (ans.length() < 3) {
-            return false;
-        } else return realANS.contains(ans);
+        String correctAnswer = answers.get(riddleNum);
+        return isCorrectAnswer(ans, correctAnswer);
     }
 
     public String getAnswer() {
