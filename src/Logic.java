@@ -14,7 +14,6 @@ public class Logic {
     private int success = 0;
     private int fails = 0;
 
-
     public static final String reset = "\u001B[0m";
     public static final String red = "\u001B[31m";
     public static final String green = "\u001B[32m";
@@ -28,6 +27,10 @@ public class Logic {
         art = new TextArt();
     }
 
+    public void printIntroduction(String playerName) throws InterruptedException {
+        System.out.println("Welcome, " + playerName + ", to Gotham's most dangerous challenge!");
+        Thread.sleep(3000);
+    }
 
     public void printIntroduction() throws InterruptedException {
         System.out.println("===============================================================");
@@ -58,7 +61,7 @@ public class Logic {
         Thread.sleep(2500);
 
         while (true) {
-            System.out.println("Do you want to continue? (yes/no): ");
+            System.out.print("Do you want to continue? (yes/no): ");
             String x = scan.nextLine();
 
             if (x.equalsIgnoreCase("yes")) {
@@ -102,6 +105,9 @@ public class Logic {
     }
 
     public void start() throws InterruptedException {
+        System.out.println("Who dares to step into the spotlight and face this formidable challenge?");
+        System.out.print("State your name: ");
+        printIntroduction(scan.nextLine());
         printIntroduction();
         Thread.sleep(3000);
         System.out.println(art.batLight());
@@ -114,9 +120,11 @@ public class Logic {
             if (check) {
                 success++;
                 printRandomReply();
+                System.out.println();
             } else {
                 fails++;
                 System.out.println(red + "\"WRONG! The answer was: " + riddle.getAnswer() + "\"" + reset);
+                System.out.println();
             }
         }
 

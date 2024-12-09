@@ -1,6 +1,5 @@
 // learned decimal format from: https://www.geeksforgeeks.org/java-program-to-round-a-number-to-n-decimal-places/
 
-
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
@@ -18,15 +17,15 @@ public class Challenge {
         int y = (int) (Math.random() * 4 + 1);
         double sqred = Math.sqrt((x * x) + (y * y));
 
-        if (sqred == (int) sqred) {
-            return "Calculate the hypotenuse of a right triangle with leg lengths of " + x + " and " + y;
-        } else {
-            distance = Double.parseDouble(df_tenths.format(sqred));
-            return "Calculate the hypotenuse of a right triangle with leg lengths of " + x + " and " + y + " (to the tenths place)";
+        String result = "Calculate the hypotenuse of a right triangle with leg lengths of " + x + " and " + y;
+        if (sqred != (int) sqred) {
+            result += " (to the tenths place)";
         }
+        return result;
     }
 
     public boolean check() {
+        System.out.print("Your answer: ");
         double ans = scan.nextDouble();
         double realANS = distance;
 
