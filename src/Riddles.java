@@ -1,3 +1,6 @@
+// array list from: https://www.w3schools.com/java/java_arraylist.asp
+// lists from: https://stackoverflow.com/questions/858572/how-to-make-a-new-list-in-java
+
 import java.util.*;
 
 public class Riddles {

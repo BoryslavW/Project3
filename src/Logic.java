@@ -1,5 +1,8 @@
+// learned Thread.sleep() from: https://stackoverflow.com/questions/62725118/how-can-i-make-a-pause-between-two-print-functions
+// learned colored text from: https://www.geeksforgeeks.org/how-to-print-colored-text-in-java-console/
+// array from: https://www.freecodecamp.org/news/java-array-how-to-declare-and-initialize-an-array-in-java-example/#:~:text=In%20Java%2C%20you%20use%20an,your%20array%20should%20be%20strings.
+
 //add something that asks if the player wants to try again or play again after they finish
-//add game introduction
 //can use Thread.sleep(1000); between print messages to delay prints; better game flow
 import java.util.Scanner;
 
@@ -10,6 +13,7 @@ public class Logic {
 
     private int success = 0;
     private int fails = 0;
+
 
     public static final String reset = "\u001B[0m";
     public static final String red = "\u001B[31m";
@@ -23,6 +27,7 @@ public class Logic {
         riddle = new Riddles();
         art = new TextArt();
     }
+
 
     public void printIntroduction() throws InterruptedException {
         System.out.println("===============================================================");
@@ -99,7 +104,7 @@ public class Logic {
     public void start() throws InterruptedException {
         printIntroduction();
         Thread.sleep(3000);
-        System.out.println(art.batman());
+        System.out.println(art.batLight());
 
         while (success < 3 && fails < 3) {
             //give the riddler image we want

@@ -1,3 +1,6 @@
+// learned decimal format from: https://www.geeksforgeeks.org/java-program-to-round-a-number-to-n-decimal-places/
+
+
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
@@ -29,20 +32,4 @@ public class Challenge {
 
         return realANS == ans;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
