@@ -13,6 +13,7 @@ public class Logic {
 
     private int success = 0;
     private int fails = 0;
+    private boolean previous;
 
 
     public static final String reset = "\u001B[0m";
@@ -33,29 +34,29 @@ public class Logic {
         System.out.println("===============================================================");
         System.out.println("      🦇 BATMAN vs THE RIDDLER: The Riddler's Trials 🧩");
         System.out.println("===============================================================");
-        Thread.sleep(2500);
+        //Thread.sleep(2500);
         System.out.println();
         System.out.println("🎩 The Riddler has struck again! Gotham is on the brink of chaos.");
         System.out.println("He has planted explosives all over the city, and only YOU,");
         System.out.println("the world’s greatest detective, can stop him.");
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         System.out.println();
         System.out.println("But beware! You’ll face a series of tricky riddles.");
         System.out.println("Answer correctly, and you edge closer to saving Gotham.");
         System.out.println("Fail... and the city will pay the ultimate price.");
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         System.out.println();
         System.out.println("💥 **3 Correct Answers**: Gotham is saved!");
         System.out.println("💣 **3 Wrong Answers**: Face the final challenge... or watch Gotham fall.");
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         System.out.println();
         System.out.println("💡 Can you outsmart The Riddler and save the city?");
         System.out.println("The clock is ticking...");
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         System.out.println();
         System.out.println("                **Good luck, Detective.**");
         System.out.println("===============================================================");
-        Thread.sleep(2500);
+        //Thread.sleep(2500);
 
         while (true) {
             System.out.println("Do you want to continue? (yes/no): ");
@@ -105,12 +106,14 @@ public class Logic {
         printIntroduction();
         Thread.sleep(3000);
         System.out.println(art.batLight());
+        System.out.println("**You encounter the Riddler**");
 
+        System.out.println(art.baseRiddler());
         while (success < 3 && fails < 3) {
-            //give the riddler image we want
 
             System.out.println(riddle.giveRiddle());
             boolean check = riddle.checkANS();
+
             if (check) {
                 success++;
                 printRandomReply();
@@ -123,6 +126,11 @@ public class Logic {
         if (success == 3) {
             printWinMessage();
         } else if (fails == 3) {
+
+            System.out.println(art.madRiddler());
+            challenge.mad(success);
+
+            // then the grapple part starts
             System.out.println(challenge.grapple());
             if (challenge.check()) {
                 System.out.println(red + "\"Very well, Batman. I'll give you a second chance.\"" + reset);
