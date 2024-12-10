@@ -14,6 +14,7 @@ public class Logic {
     private int success = 0;
     private int fails = 0;
     private boolean previous;
+    private String defuserCode;
 
     public static final String reset = "\u001B[0m";
     public static final String red = "\u001B[31m";
@@ -138,19 +139,32 @@ public class Logic {
             System.out.println(art.madRiddler());
             challenge.mad(success);
 
-            // then the grapple part starts
             System.out.println(challenge.grapple());
             if (challenge.check()) {
-                System.out.println(red + "\"Very well, Batman. I'll give you a second chance.\"" + reset);
-                System.out.println(riddle.giveRiddle());
-                if (riddle.checkANS()) {
+                // now you have to check which bomb is the main bomb
+                challenge.check(success);
+                challenge.defusal();
+                Thread.sleep(5000);
+                System.out.println("Do you go for the bomb in: Gotham Library, Wayne Enterprises Building, or Gotham City Hall");
+
+                System.out.println(art.device());
+
+                // add something here thats like "WHATS THIS RIDDLER LEFT A POST IT BY ACCIDENT, it says something about how he couldn't
+                // remember the defusal code since the scarecrow was always messing with him and getting him blasted so he wrote it down
+
+                defuserCode = scan.nextLine();
+
+                if (challenge.check(defuserCode)) {
                     printWinMessage();
-                } else {
+                }
+                else {
                     printLoseMessage();
                 }
+
             } else {
                 printLoseMessage();
             }
+
         }
     }
 }
