@@ -3,8 +3,11 @@
 
 
 public class TextArt {
-
-    public TextArt() {}
+    private int artNum;
+    
+    public TextArt() {
+        artNum = 0;
+    }
 
     public TextArt(int b) {
         System.out.println("        ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⠾⠛⠛⠛⠲⠦⣤⣤⣴⠶⠛⣋⣉⠉⠉⠛⠶⠶⢤⡤⠶⠚⠛⠉⠉⣁⣍⡙⠓⠶⣤⣤⣤⣤⣵⠶⠶⠶⢶⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
