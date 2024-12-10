@@ -2,8 +2,8 @@
 // learned colored text from: https://www.geeksforgeeks.org/how-to-print-colored-text-in-java-console/
 // array from: https://www.freecodecamp.org/news/java-array-how-to-declare-and-initialize-an-array-in-java-example/#:~:text=In%20Java%2C%20you%20use%20an,your%20array%20should%20be%20strings.
 
-//add something that asks if the player wants to try again or play again after they finish
 //can use Thread.sleep(1000); between print messages to delay prints; better game flow
+
 import java.util.Scanner;
 
 public class Logic {
@@ -38,29 +38,29 @@ public class Logic {
         System.out.println("===============================================================");
         System.out.println("      🦇 BATMAN vs THE RIDDLER: The Riddler's Trials 🧩");
         System.out.println("===============================================================");
-        //Thread.sleep(2500);
+        Thread.sleep(2500);
         System.out.println();
         System.out.println("🎩 The Riddler has struck again! Gotham is on the brink of chaos.");
         System.out.println("He has planted explosives all over the city, and only YOU,");
         System.out.println("the world’s greatest detective, can stop him.");
-        //Thread.sleep(5000);
+        Thread.sleep(5000);
         System.out.println();
         System.out.println("But beware! You’ll face a series of tricky riddles.");
         System.out.println("Answer correctly, and you edge closer to saving Gotham.");
         System.out.println("Fail... and the city will pay the ultimate price.");
-        //Thread.sleep(5000);
+        Thread.sleep(5000);
         System.out.println();
         System.out.println("💥 **3 Correct Answers**: Gotham is saved!");
         System.out.println("💣 **3 Wrong Answers**: Face the final challenge... or watch Gotham fall.");
-        //Thread.sleep(5000);
+        Thread.sleep(5000);
         System.out.println();
         System.out.println("💡 Can you outsmart The Riddler and save the city?");
         System.out.println("The clock is ticking...");
-        //Thread.sleep(5000);
+        Thread.sleep(5000);
         System.out.println();
         System.out.println("                **Good luck, Detective.**");
         System.out.println("===============================================================");
-        //Thread.sleep(2500);
+        Thread.sleep(2500);
 
         while (true) {
             System.out.print("Do you want to continue? (yes/no): ");
@@ -149,10 +149,15 @@ public class Logic {
 
                 System.out.println(art.device());
 
-                // add something here thats like "WHATS THIS RIDDLER LEFT A POST IT BY ACCIDENT, it says something about how he couldn't
-                // remember the defusal code since the scarecrow was always messing with him and getting him blasted so he wrote it down
+                System.out.println("Batman found the controlling bomb, but why is this post it next to it?");
+                System.out.println("The post it reads: Emergency defusal code incase Scarecrow desides to flood workshop with fear toxin")
+                Thread.sleep(5000);
 
                 defuserCode = scan.nextLine();
+
+                if (defuserCode.equals("1948") {
+                    TextArt sponge = new TextArt(8);
+                }
 
                 if (challenge.check(defuserCode)) {
                     printWinMessage();
