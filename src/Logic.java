@@ -149,8 +149,7 @@ public class Logic {
 
             if (challenge.check()) {
                 // now you have to check which bomb is the main bomb
-                challenge.check(success);
-                challenge.defusal();
+                challenge.clue(success);
                 Thread.sleep(5000);
                 System.out.println("Do you go for the bomb in: Gotham Library, Wayne Enterprises Building, or Gotham City Hall");
                 location = scan.nextLine();
@@ -161,6 +160,8 @@ public class Logic {
                     System.out.println("Batman found the controlling bomb, but why is this post it next to it?");
                     System.out.println("The post it reads: Emergency defusal code in case Scarecrow decides to flood workshop with fear toxin");
                     Thread.sleep(5000);
+                    System.out.println("The timer is running, you have to enter the code quick!!!");
+                    System.out.println(challenge.defusal());
 
                     defuserCode = scan.nextLine();
 

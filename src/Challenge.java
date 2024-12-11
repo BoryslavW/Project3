@@ -36,7 +36,7 @@ public class Challenge {
         return realANS == ans;
     }
 
-    public void check(int success) {
+    public void clue(int success) {
         timer = 15 * success;
 
         if (success == 2) {
@@ -50,6 +50,7 @@ public class Challenge {
         }
 
         System.out.println();
+        System.out.println(finaleCLue);
         System.out.println("You only get " + timer + " seconds to defuse the bomb if you find it");
         System.out.println();
     }
@@ -60,7 +61,7 @@ public class Challenge {
         Thread.sleep(5000);
     }
 
-    public void defusal() {
+    public String defusal() {
 
         int rand = (int) (Math.random() * 3) + 1;
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -80,7 +81,7 @@ public class Challenge {
                 }
             }
         }
-
+        return bombCode;
     }
 
 
