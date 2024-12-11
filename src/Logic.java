@@ -15,6 +15,7 @@ public class Logic {
     private int fails = 0;
     private boolean previous;
     private String defuserCode;
+    private String location = "";
 
     public static final String reset = "\u001B[0m";
     public static final String red = "\u001B[31m";
@@ -152,30 +153,34 @@ public class Logic {
                 challenge.defusal();
                 Thread.sleep(5000);
                 System.out.println("Do you go for the bomb in: Gotham Library, Wayne Enterprises Building, or Gotham City Hall");
+                location = scan.nextLine();
 
-                System.out.println(art.device());
+                if (location.contains("ity")) {
+                    System.out.println(art.device());
 
-                System.out.println("Batman found the controlling bomb, but why is this post it next to it?");
-                System.out.println("The post it reads: Emergency defusal code in case Scarecrow decides to flood workshop with fear toxin");
-                Thread.sleep(5000);
+                    System.out.println("Batman found the controlling bomb, but why is this post it next to it?");
+                    System.out.println("The post it reads: Emergency defusal code in case Scarecrow decides to flood workshop with fear toxin");
+                    Thread.sleep(5000);
 
-                defuserCode = scan.nextLine();
+                    defuserCode = scan.nextLine();
 
-                if (defuserCode.equals("1948")) {
-                    TextArt sponge = new TextArt(8);
-                }
+                    if (defuserCode.equals("1948")) {
+                        TextArt sponge = new TextArt(8);
+                    }
 
-                if (challenge.check(defuserCode)) {
-                    printWinMessage();
-                }
-                else {
+                    if (challenge.check(defuserCode)) {
+                        printWinMessage();
+                    } else {
+                        printLoseMessage();
+                    }
+
+                } else {
                     printLoseMessage();
                 }
-
-            } else {
+            }
+            else {
                 printLoseMessage();
             }
-
         }
     }
 }
