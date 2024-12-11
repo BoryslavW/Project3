@@ -15,7 +15,9 @@ public class Logic {
     private int fails = 0;
     private boolean previous;
     private String defuserCode;
-    private String location = "";
+    private String location;
+    private boolean previousAns = true;
+
 
     public static final String reset = "\u001B[0m";
     public static final String red = "\u001B[31m";
@@ -116,9 +118,13 @@ public class Logic {
         System.out.println(art.batLight());
         System.out.println("**You encounter the Riddler**");
 
-        System.out.println(art.baseRiddler());
         while (success < 3 && fails < 3) {
-
+            if (previousAns) {
+                System.out.println(art.baseRiddler());
+            }
+            else {
+                System.out.println(art.sadRiddler());
+            }
             System.out.println(riddle.giveRiddle());
             boolean check = riddle.checkANS();
 
