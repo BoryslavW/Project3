@@ -28,7 +28,7 @@ public class Riddles {
     List<String> answers = Arrays.asList(
             "Your reflection",
             "A joke", "Bribe",
-            "A promise",
+            "A promise or silence",
             "Darkness",
             "A deck of cards",
             "Your tongue",

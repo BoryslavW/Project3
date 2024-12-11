@@ -138,8 +138,14 @@ public class Logic {
 
             System.out.println(art.madRiddler());
             challenge.mad(success);
+            Thread.sleep(8000);
 
+
+            System.out.println(art.grapple());
+            System.out.println("You must find the bombs, hopefully the riddles have rotted his head and they are all connected in a hub and spoke network");
             System.out.println(challenge.grapple());
+            Thread.sleep(5000);
+
             if (challenge.check()) {
                 // now you have to check which bomb is the main bomb
                 challenge.check(success);
@@ -150,12 +156,12 @@ public class Logic {
                 System.out.println(art.device());
 
                 System.out.println("Batman found the controlling bomb, but why is this post it next to it?");
-                System.out.println("The post it reads: Emergency defusal code incase Scarecrow desides to flood workshop with fear toxin")
+                System.out.println("The post it reads: Emergency defusal code in case Scarecrow decides to flood workshop with fear toxin");
                 Thread.sleep(5000);
 
                 defuserCode = scan.nextLine();
 
-                if (defuserCode.equals("1948") {
+                if (defuserCode.equals("1948")) {
                     TextArt sponge = new TextArt(8);
                 }
 
