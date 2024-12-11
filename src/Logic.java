@@ -13,7 +13,6 @@ public class Logic {
 
     private int success = 0;
     private int fails = 0;
-    private boolean previous;
     private String defuserCode;
     private String location;
     private boolean previousAns = true;
@@ -104,11 +103,6 @@ public class Logic {
         System.out.println(":(" + reset);
     }
 
-    public void resetGame() {
-        success = 0;
-        fails = 0;
-    }
-
     public void start() throws InterruptedException {
         System.out.println("Who dares to step into the spotlight and face this formidable challenge?");
         System.out.print("State your name: ");
@@ -145,8 +139,6 @@ public class Logic {
 
             System.out.println(art.madRiddler());
             challenge.mad(success);
-            Thread.sleep(8000);
-
 
             System.out.println(art.grapple());
             System.out.println("You must find the bombs, hopefully the riddles have rotted his head and they are all connected in a hub and spoke network");

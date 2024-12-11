@@ -8,7 +8,6 @@ public class Challenge {
     Scanner scan = new Scanner(System.in);
     DecimalFormat df_tenths = new DecimalFormat("#.#");
     private double distance = 0;
-    private int timer = 0;
     private String finaleCLue = "";
     private String bombCode = "";
 
@@ -37,8 +36,6 @@ public class Challenge {
     }
 
     public void clue(int success) {
-        timer = 15 * success;
-
         if (success == 2) {
             finaleCLue = "Your so close to victory yet so far? You know all too well you cant save this corrupt system";
         }
@@ -46,19 +43,19 @@ public class Challenge {
             finaleCLue = "I can be written, I can be spoken, I can be exposed, I can be broken...    what am I?";
         }
         else {
-            finaleCLue = "Im really sick of this whole ordeal with the so called 'words greatest detective', just think corruption or whatever";
+            finaleCLue = "Im really sick of this whole ordeal with the so called 'world's greatest detective', just think corruption or whatever";
         }
 
         System.out.println();
         System.out.println(finaleCLue);
-        System.out.println("You only get " + timer + " seconds to defuse the bomb if you find it");
+        System.out.println("Try to find the bomb and defuse it");
         System.out.println();
     }
 
     public void mad(int success) throws InterruptedException {
         System.out.println("WOW, the great BAT-man, you only solved " + success + " riddles? " +
                 "\n DO YOU HAVE ANY IDEA HOW MUCH EFFORT I PUT INTO THESE RIDDLES!? LUGGING BOMBS AROUND GOTHAM!?");
-        Thread.sleep(5000);
+        Thread.sleep(3500);
     }
 
     public String defusal() {
